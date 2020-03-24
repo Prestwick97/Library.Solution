@@ -8,6 +8,7 @@ namespace Library.Models
     {
       this.Books = new HashSet<AuthorBook>();
     }
+    
     public int AuthorId {get; set;}
     public string Name {get; set;}
     public virtual ICollection<AuthorBook> Books {get; set;}
