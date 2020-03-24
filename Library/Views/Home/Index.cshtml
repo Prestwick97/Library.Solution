@@ -3,7 +3,11 @@
 }
 
 <h1>Welcome to the Library!</h1>
-<p>@Html.ActionLink("See all Authors", "Index", "Authors")</p>
-<p>@Html.ActionLink("See all Books", "Index", "Books")</p>
 <p>@Html.ActionLink("Create an account", "Index", "Account")</p>
-<p>@Html.ActionLink("Log in", "Login")</p>
+<p>@Html.ActionLink("Patron log in", "Login", "Account")</p> 
+<p>@Html.ActionLink("Librarian log in", "Login", "LibrarianAccount")</p>
+
+
+
+@* <p>@Html.ActionLink("See all Authors", "Index", "Authors")</p>
+<p>@Html.ActionLink("See all Books", "Index", "Books")</p> *@
