@@ -36,11 +36,13 @@ namespace Library.Controllers
 
     public ActionResult Details(int id)
     {
-      var thisCategory = _db.Categories
-        .Include(category => category.Items)
+      var thisAuthor = _db.Authors
+        .Include(author => author.Items)
         .ThenInclude(join => join.Item)
-        .FirstOrDefault(category => category.CategoryId == id);
-      return View(thisCategory);
+        .FirstOrDefault(author => author.AuthorId == id);
+      return View(thisAuthor);
     }
+
+
   }
 }
