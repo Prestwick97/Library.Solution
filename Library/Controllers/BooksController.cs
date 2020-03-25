@@ -39,7 +39,7 @@ namespace Library.Controllers
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(Book book, int AuthorId)
+    public async Task<ActionResult> Create(Book book, int AuthorId, int CopiesId, Copies copies)
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
@@ -47,8 +47,12 @@ namespace Library.Controllers
         _db.Books.Add(book);
       if (AuthorId != 0)
         {
-          _db.AuthorBook.Add(new AuthorBook() { AuthorId = AuthorId, BookId = book.BookId });
+          _db.AuthorBook.Add(new AuthorBook() { AuthorId = AuthorId, BookId = book.BookId, CopiesId = CopiesId});
         }
+      if((_db.book.Title.ToList()).Contains(book.Title))
+      {
+        copies.Count + 1;
+      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
