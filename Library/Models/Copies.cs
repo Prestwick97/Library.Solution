@@ -11,7 +11,7 @@ namespace Library.Models
     
     public int CopiesId { get; set; }
     public int BookId {get; set;}
-    public int Count {get; set;}
+    public int Count {get; set;} 
     public ICollection<AuthorBook> Books {get; }
     public ICollection<Checkout> Patrons {get; }
   }

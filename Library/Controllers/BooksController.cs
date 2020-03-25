@@ -49,10 +49,12 @@ namespace Library.Controllers
         {
           _db.AuthorBook.Add(new AuthorBook() { AuthorId = AuthorId, BookId = book.BookId, CopiesId = CopiesId});
         }
-      if((_db.book.Title.ToList()).Contains(book.Title))
-      {
-        copies.Count + 1;
-      }
+      
+      // var thisBook = _db.Books
+      //   .Include(book => book.Title)
+      //   .ThenInclude(join => join.Copies)
+      //   .FirstOrDefault(book => copies.Count +=1);
+
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
