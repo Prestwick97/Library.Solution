@@ -18,11 +18,11 @@ else
   <ul>
   @foreach(var join in Model.Books)
   {
-    <li>@join.Book.Title</li>
+    @* <li>@Html.ActionLink($"{@join.Book.Title}", "Details", "Books")</li> *@
+    <li>@Html.ActionLink($"{@join.Book.Title}", "Details", "Books", new { id = @join.Book.BookId })</li>
   }
   </ul>
 }
-
 <p>@Html.ActionLink("Back to authors", "Index")</p>
 <p>@Html.ActionLink("Edit Author", "Edit", new { id = Model.AuthorId })</p>
 <p>@Html.ActionLink("Delete Author", "Delete", new { id = Model.AuthorId })</p>
